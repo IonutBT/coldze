@@ -26,18 +26,18 @@ class Moderation():
 		'''Ban a member in a guild
 		-------------------
 		Ex:
-		a?ban @Adytzu Bad boy'''
+		cz?ban @Adytzu Bad boy'''
 		if member is None:
-			await ctx.send("<:AtomicalQuestion:474576686873051136> | Please provide a user to ban")
+			await ctx.send(" Please provide a user to ban")
 		if member == ctx.author:
-			return await ctx.send("<:AtomicalForbidden:474576377954172949> | You can't ban yourself!")
+			return await ctx.send("You can't ban yourself!")
 		if member == self.bot.user:
-			return await ctx.send("<:AtomicalForbidden:474576377954172949> | I can't ban myself!")
+			return await ctx.send(" I can't ban myself!")
 		if member == ctx.author.guild.owner:
-			return await ctx.send("<:AtomicalForbidden:474576377954172949> | I can't ban the owner")
+			return await ctx.send("  I can't ban the owner")
 		if member != ctx.author and member != self.bot.user:
 			await member.ban()
-			await ctx.send(f'<:AtomicalSucces:474568904170274826> | **{member}** just got banned.')
+			await ctx.send(f'**{member}** just got banned.')
 
 
 
@@ -50,18 +50,18 @@ class Moderation():
 		'''Kick a member in a guild
 		-------------------
 		Ex:
-		a?kick @Adytzu Shitposting'''
+		cz?kick @Adytzu Shitposting'''
 		if member is None:
-			await ctx.send("<:AtomicalQuestion:474576686873051136> | Please provide a user to kick")
+			await ctx.send("Please provide a user to kick")
 		if member == ctx.author:
-			return await ctx.send("<:AtomicalForbidden:474576377954172949> | You can't kick yourself!")
+			return await ctx.send(" You can't kick yourself!")
 		if member == self.bot.user:
-			return await ctx.send("<:AtomicalForbidden:474576377954172949> | I can't kick myself!")
+			return await ctx.send(" I can't kick myself!")
 		if member == ctx.author.guild.owner:
-			return await ctx.send("<:AtomicalForbidden:474576377954172949> | I can't kick the owner")
+			return await ctx.send(" I can't kick the owner")
 		if member != ctx.author and member != self.bot.user:
 			await member.kick()
-			await ctx.send(f'<:AtomicalSucces:474568904170274826> | **{member}** just got kicked.')
+			await ctx.send(f' **{member}** just got kicked.')
 
 	@commands.cooldown(1, 5, commands.BucketType.user)
 	@commands.command(aliases= ["clear", "prune"])
@@ -70,12 +70,12 @@ class Moderation():
 		'''Delete a number of messages in a channel
 		-------------------
 		Ex:
-		a?purge 50'''
+		cz?purge 50'''
 		if number>500 or number<0:
-			return await ctx.send("<:AtomicalQuestion:474576686873051136> | Invalid amount, maximum is 500.")
+			return await ctx.send(" Invalid amount, maximum is 500.")
 		await ctx.message.delete()
 		await ctx.channel.purge(limit=number, bulk=True)
-		await ctx.message.channel.send(f'<:AtomicalSucces:474568904170274826> | Succefully deleted {int(number)} messages!', delete_after=5)
+		await ctx.message.channel.send(f'Succefully deleted {int(number)} messages!', delete_after=5)
 
 
 
