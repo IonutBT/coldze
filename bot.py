@@ -26,7 +26,6 @@ bot = commands.Bot(case_insensitive=True, command_prefix='cz?')
 bot.load_extension("cogs.admin")
 bot.remove_command('help')
 bot.load_extension("cogs.fun")
-bot.load_extension("cogs.more")
 bot.load_extension("cogs.utility")
 bot.load_extension("cogs.mod")
 bot.load_extension("cogs.api")
@@ -204,3 +203,4 @@ async def presence():
 
 bot.loop.create_task(presence())
 bot.run(os.getenv("TOKEN"))
+#Copyright Adytzuma\\Yonly - Allowed Copy
