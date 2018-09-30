@@ -29,7 +29,7 @@ class Utility():
 	async def support(self, ctx):
 		'Returns the link to the support server'
 		em = discord.Embed(title="", description="", color=discord.Colour.blue())
-		em.add_field(name='Support Server', value='[Here]( https://discord.gg/vqquZAj )')
+		em.add_field(name='Support Server', value='[Here]( https://discord.gg/xeGn4A )')
 		await ctx.send(embed=em)
 
 	@commands.cooldown(1, 5, commands.BucketType.user)
@@ -39,7 +39,7 @@ class Utility():
 		Works only for custom ones
 		------------------------
 		Ex:
-		a?emoji :emoji:'''
+		cz?emoji :emoji:'''
 		await ctx.send(f'`Name:` {emoji.name}\n`ID:` {emoji.id}\n`Preview:` {emoji} (`{emoji}`)\n`URL:` {emoji.url}')
 
 
@@ -50,8 +50,8 @@ class Utility():
 		em = discord.Embed(color=discord.Colour.blue())
 		em.add_field(name=':paintbrush: Name', value=f'{ctx.author.guild.name}', inline=False)
 		em.add_field(name=':crown: Owner', value=f'{ctx.author.guild.owner.mention} [{ctx.author.guild.owner.id}]', inline=False)
-		em.add_field(name=':mountain_snow: Icon', value='Do a?servericon', inline=False)
-		em.add_field(name=':family_mwgb: Roles', value='Do a?serverroles', inline=False)
+		em.add_field(name=':mountain_snow: Icon', value='Do cz?servericon', inline=False)
+		em.add_field(name=':family_mwgb: Roles', value='Do cz?serverroles', inline=False)
 		em.add_field(name=':bust_in_silhouette: Members', value=f'{ctx.guild.member_count}', inline=False)
 		em.add_field(name=':clock1: Created at', value=ctx.guild.created_at, inline=False)
 		em.set_thumbnail(url=ctx.guild.icon_url)
@@ -75,7 +75,7 @@ class Utility():
 		"""Get a member's avatar
 		-------------------
 		Ex:
-		a?avatar @Adytzu"""
+		cz?avatar @Adytzu"""
 		if member is None:
 			member = ctx.author
 		em = discord.Embed(title="", color=discord.Colour.blue())
@@ -105,7 +105,7 @@ class Utility():
 		"""Get a member's info
 		-------------------
 		Ex:
-		a?playerinfo @Adytzu"""
+		cz?playerinfo @Adytzu"""
 		if member is None:
 			member = ctx.author
 		em = discord.Embed(title=f"{member}'s info", color=discord.Colour.blue())
@@ -123,20 +123,6 @@ class Utility():
 
 
 
-	@commands.cooldown(1, 5, commands.BucketType.user)
-	@commands.command(aliases= ['botinfo'])
-	async def about(self, ctx):
-		'Stuff about the bot'
-		em = discord.Embed(color=discord.Colour.blue())
-		em.add_field(name='<:AtomicalServers:474825229164871680> Servers', value=f'{len(self.bot.guilds)}', inline=True)
-		em.add_field(name='<:AtomicalUsers:474825251172253698> Users', value=f'{len(self.bot.users)}', inline=True)
-		em.add_field(name=':cloud: Latency', value=f'{ctx.bot.latency * 1000:.0f} MS')
-		em.add_field(name=':crown: Owner', value=f'<@404708655578218511>')
-		em.add_field(name=':clock1: Created at', value=ctx.me.created_at)
-		em.add_field(name='<:AtomicalPython:474828443541045258> Library', value='Python (discord.py)')
-		em.set_thumbnail(url=ctx.me.avatar_url)
-		em.set_footer(text='Thank you for using Atomical <3')
-		await ctx.send(embed=em)
 
 
 
