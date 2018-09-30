@@ -53,7 +53,7 @@ class Meta:
         """Shows you information about a number of characters.
         -------------------
 		Ex:
-		a?charinfo :wave:
+		cz?charinfo :wave:
         """
 
         def to_string(c):
