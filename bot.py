@@ -22,7 +22,7 @@ import async_timeout
 
 
 logging.basicConfig(level='INFO')
-bot = commands.Bot(case_insensitive=True, command_prefix='a?')
+bot = commands.Bot(case_insensitive=True, command_prefix='cz?')
 bot.load_extension("cogs.admin")
 bot.remove_command('help')
 bot.load_extension("cogs.fun")
@@ -35,7 +35,7 @@ bot.load_extension("cogs.meta")
 
 
 colors = [discord.Colour.purple(), discord.Colour.blue(), discord.Colour.red(), discord.Colour.green(), discord.Colour.orange()]
-owner = [404708655578218511]
+owner = [300268467322486785]
 OPUS_LIBS = ['libopus-0.x86.dll', 'libopus-0.x64.dll', 'libopus-0.dll', 'libopus.so.0', 'libopus.0.dylib']
 """
 def load_opus_lib(opus_libs=OPUS_LIBS):
@@ -98,7 +98,7 @@ async def on_ready():
 async def invite(ctx):
     'Returns the bot invite link'
     em = discord.Embed(color=discord.Colour.orange())
-    em.add_field(name='Invite Atomical', value='[Here]( https://discordapp.com/oauth2/authorize?client_id=464683212174786561&permissions=104082502&scope=bot )')
+    em.add_field(name='Invite ColdZone', value='[Here]( https://discordapp.com/oauth2/authorize?client_id=495857256890630154&permissions=104082502&scope=bot )')
     await ctx.send(embed=em)
 
 
@@ -113,17 +113,19 @@ async def invite(ctx):
 
 @bot.listen()
 async def on_command_error(ctx, error):
+    if ctx.author.bot is True:
+        return
     print(f'\'{ctx.author}\' used command \'{ctx.command}\' and got this error: \n-{error}')
     if isinstance(error, commands.CommandOnCooldown):
-        return await ctx.send(f'<:AtomicalSpam:474576397801881610> | Hey, You are being ratelimited! Try again in** {int(error.retry_after)} **seconds!', delete_after=5)
+        return await ctx.send(f' Hey, You are being ratelimited! Try again in** {int(error.retry_after)} **seconds!', delete_after=5)
     if isinstance(error, commands.NotOwner):
-        return await ctx.send('<:AtomicalWarning:474576332752420864> | You do not own this bot!')
+        return await ctx.send(' You do not own this bot!')
     if isinstance(error, commands.BadArgument):
-        return await ctx.send(f'<:AtomicalError:474568988186247178> | {error}')
+        return await ctx.send(f' {error}')
     if isinstance(error, commands.MissingPermissions):
-        return await ctx.send('<:AtomicalForbidden:474576377954172949> | You are missing permission to execute this command')
+        return await ctx.send(' You are missing permission to execute this command')
     if isinstance(error, commands.BotMissingPermissions):
-        return await ctx.send('<:AtomicalForbidden:474576377954172949> | I am missing permission to perform this command!')
+        return await ctx.send(' I am missing permission to perform this command!')
 
 
 """
@@ -157,13 +159,6 @@ async def search(ctx, *, query):
 
 
 
-def cleanup_code(content):
-    'Automatically removes code blocks from the code.'
-    if content.startswith('```') and content.endswith('```'):
-        return '\n'.join(content.split('\n')[1:(-1)])
-    return content
-
-
 
 
 async def presence():
@@ -175,19 +170,19 @@ async def presence():
                 if u.bot == False:
                     a = a + 1
 
-        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="my favourite movie | a?help"))
+        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="my favourite movie | cz?help"))
         await sleep(30)
         await bot.change_presence(activity=discord.Game(name="with my friends | a?help"))
         await sleep(30)
-        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="some music | a?help"))
+        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="some music | cz?help"))
         await sleep(30)
         await bot.change_presence(activity=discord.Game(name="with my new toys | a?help"))
         await sleep(30)
-        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Adytzu coding me | a?help"))
+        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="horror movies | cz?help"))
         await sleep(30)
-        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=f"{len(bot.users)} users | a?help"))
+        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=f"{len(bot.users)} users | cz?help"))
         await sleep(30)
-        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{len(bot.guilds)} servers | a?help"))
+        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{len(bot.guilds)} servers | cz?help"))
         await sleep(30)
 
 
